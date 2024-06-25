@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+/* 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name" */
 .logo {
   height: 6em;
   padding: 1.5em;
