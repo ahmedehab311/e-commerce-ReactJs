@@ -1,30 +1,38 @@
-import { Container, IconButton, Stack, Typography } from "@mui/material";
-import { ShoppingCartOutlined } from "@mui/icons-material";
+import { ExpandMore, ShoppingCartOutlined } from "@mui/icons-material";
+import {
+  Badge,
+  Container,
+  IconButton,
+  InputBase,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+import { styled } from "@mui/material/styles";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
-import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useState } from "react";
 import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
+import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useState } from "react";
+
 const Search = styled("div")(({ theme }) => ({
+  flexGrow: 0.4,
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  border: "1px solid #777",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    border: "1px solid #333",
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: "100%",
+  width: "266px",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "auto",
+    width: "330px",
   },
 }));
 
@@ -36,6 +44,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  color: "#777",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -51,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-//
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -61,15 +70,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-function Header2() {
-  const options = [
-    "Show some love to MUI",
-    "Show all notification content",
-    "Hide sensitive notification content",
-    "Hide all notification content",
-  ];
+const options = ["All Categories", "CAR", "Clothes", "Electronics"];
+
+const Header2 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -83,14 +88,23 @@ function Header2() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const theme = useTheme();
+
   return (
     <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" }}>
       <Stack alignItems={"center"}>
         <ShoppingCartOutlined />
-        <Typography variant="body2">E-Commerce</Typography>
+        <Typography variant="body2">E-commerce</Typography>
       </Stack>
 
-      <Search sx={{ borderRadius: "22px", display: "flex" }}>
+      <Search
+        sx={{
+          display: "flex",
+          borderRadius: "22px",
+          justifyContent: "space-between",
+        }}
+      >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
@@ -98,13 +112,20 @@ function Header2() {
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
         />
+
         <div>
           <List
             component="nav"
             aria-label="Device settings"
-            sx={{ bgcolor: "background.paper" }}
+            sx={{
+              // @ts-ignore
+              bgcolor: theme.palette.mycolor.mainn,
+              borderBottomRightRadius: 22,
+              borderTopRightRadius: 22,
+              p: "0",
+            }}
           >
-            <ListItemButton
+            <ListItem
               id="lock-button"
               aria-haspopup="listbox"
               aria-controls="lock-menu"
@@ -113,10 +134,16 @@ function Header2() {
               onClick={handleClickListItem}
             >
               <ListItemText
-       
+                // className="border"
+                sx={{
+                  width: 93,
+                  textAlign: "center",
+                  "&:hover": { cursor: "pointer" },
+                }}
                 secondary={options[selectedIndex]}
               />
-            </ListItemButton>
+              <ExpandMore sx={{ fontSize: "16px" }} />
+            </ListItem>
           </List>
           <Menu
             id="lock-menu"
@@ -130,6 +157,7 @@ function Header2() {
           >
             {options.map((option, index) => (
               <MenuItem
+                sx={{ fontSize: "13px" }}
                 key={option}
                 selected={index === selectedIndex}
                 onClick={(event) => handleMenuItemClick(event, index)}
@@ -142,17 +170,18 @@ function Header2() {
       </Search>
 
       <Stack direction={"row"} alignItems={"center"}>
-        <IconButton>
-          <Person2OutlinedIcon />
-        </IconButton>
         <IconButton aria-label="cart">
           <StyledBadge badgeContent={4} color="primary">
             <ShoppingCartIcon />
           </StyledBadge>
         </IconButton>
+
+        <IconButton>
+          <Person2OutlinedIcon />
+        </IconButton>
       </Stack>
     </Container>
   );
-}
+};
 
 export default Header2;
