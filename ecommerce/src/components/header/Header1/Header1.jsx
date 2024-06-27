@@ -1,32 +1,18 @@
-import { useContext, useState } from "react";
-import { ColorModeContext } from "../../theme";
-import {
-  Box,
-  IconButton,
-  useTheme,
-  Typography,
-  Stack,
-  ListItem,
-  Container,
-} from "@mui/material";
-import {
-  DarkModeOutlined,
-  ExpandMore,
-  LightModeOutlined,
-} from "@mui/icons-material";
+import { useState } from "react";
+import { Box, Stack, ListItem, Container } from "@mui/material";
+import { ExpandMore } from "@mui/icons-material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import List from "@mui/material/List";
-// import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-function Header1() {
-  const colorMode = useContext(ColorModeContext);
-  const theme = useTheme();
-  const options = ["EN", "AR"];
+import LightDarkMode from "./LightDarkMode/LightDarkMode";
+import Logo from "./Logo/Logo";
 
+function Header1() {
+  const options = ["EN", "AR"];
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
@@ -54,62 +40,10 @@ function Header1() {
     >
       <Container>
         <Stack direction={"row"} alignItems={"center"}>
-          <Typography
-            sx={{
-              mr: 2,
-              p: "4px 10px",
-              bgcolor: "#D23F57",
-              borderRadius: "12px",
-              fontSize: "12px",
-              fontWeight: "bold",
-              color: "#fff",
-            }}
-            variant="body2"
-          >
-            HOT
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "12px",
-              fontWeight: 300,
-              color: "#fff",
-            }}
-            variant="body2"
-          >
-            Free Express Shipping
-          </Typography>
-
+          <Logo />
           <Box flexGrow={1} />
-          <div>
-            {theme.palette.mode === "light" ? (
-              <IconButton
-                onClick={() => {
-                  localStorage.setItem(
-                    "mode",
-                    theme.palette.mode === "dark" ? "light" : "dark"
-                  );
-                  colorMode.toggleColorMode();
-                }}
-                color="inherit"
-              >
-                <LightModeOutlined sx={{ fontSize: "16px", color: "#fff" }} />
-              </IconButton>
-            ) : (
-              <IconButton
-                onClick={() => {
-                  localStorage.setItem(
-                    "mode",
-                    theme.palette.mode === "dark" ? "light" : "dark"
-                  );
-                  colorMode.toggleColorMode();
-                }}
-                color="inherit"
-              >
-                <DarkModeOutlined sx={{ fontSize: "16px" }} />
-              </IconButton>
-            )}
-          </div>
 
+          <LightDarkMode />
           <List
             component="nav"
             aria-label="Device settings"
