@@ -10,6 +10,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Stack,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -19,7 +20,6 @@ import MenuItem from "@mui/material/MenuItem";
 import WindowIcon from "@mui/icons-material/Window";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-// import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 import { useTheme } from "@emotion/react";
 import {
   Close,
@@ -28,6 +28,7 @@ import {
   MenuBookOutlined,
   SportsEsportsOutlined,
 } from "@mui/icons-material";
+import Links from "./Links";
 
 function Header3() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -64,6 +65,7 @@ function Header3() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        mt: 5,
       }}
     >
       <Box>
@@ -140,7 +142,18 @@ function Header3() {
         </Menu>
       </Box>
 
-      {true && (
+      {useMediaQuery("(min-width:1200px)") && (
+        <Stack gap={4} direction={"row"} alignItems={"center"}>
+          <Links title={"Home"} />
+          <Links title={"Mega Menu"} />
+          <Links title={"Full Screen Menu"} />
+          <Links title={"pages"} />
+          <Links title={"User Account"} />
+          <Links title={"Vendor Account"} />
+        </Stack>
+      )}
+
+      {useMediaQuery("(max-width:1200px)") && (
         <IconButton onClick={toggleDrawer("top", true)}>
           <MenuIcon />
         </IconButton>
