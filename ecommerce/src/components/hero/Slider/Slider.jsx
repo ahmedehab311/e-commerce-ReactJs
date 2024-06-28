@@ -1,9 +1,9 @@
 import "./Slider.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import { img3, img4 } from "../imegsExports";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { img3, img4 } from "../imegsExports";
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 
 const mySlider = [

@@ -13,16 +13,34 @@ import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOu
 import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 
 const IconSection = () => {
-  const theme = useTheme();
   return (
-    <Container
-      sx={{ mt: 3, bgcolor: theme.palette.mode === "dark" ? "#000" : "#fff" }}
-    >
-      <Stack direction={"row"}>
-      <MyBox icon={<AccessAlarmOutlinedIcon/>}/>
-      <MyBox icon={<WorkspacePremiumOutlinedIcon/>}/>
-      <MyBox icon={<CreditScoreOutlinedIcon/>}/>
-      <MyBox icon={<ElectricBoltIcon/>}/>
+    <Container sx={{ bgcolor: "#000" }}>
+      <Stack
+        divider={<Divider orientation="vertical" flexItem />}
+        direction={"row"}
+        alignItems={"center"}
+        sx={{ flexWrap: "wrap" }}
+      >
+        <MyBox
+          icon={<ElectricBoltIcon fontSize="large" />}
+          title={"Fast Delivery"}
+          subTitle={"Start from $10"}
+        />
+        <MyBox
+          icon={<WorkspacePremiumOutlinedIcon fontSize="large" />}
+          title={"Money Guarantee"}
+          subTitle={"7 Days Back"}
+        />
+        <MyBox
+          icon={<AccessAlarmOutlinedIcon fontSize="large" />}
+          title={"365 Days"}
+          subTitle={"For free return"}
+        />
+        <MyBox
+          icon={<CreditScoreOutlinedIcon fontSize="large" />}
+          title={"Payment"}
+          subTitle={"Secure system"}
+        />
       </Stack>
     </Container>
   );
@@ -30,9 +48,31 @@ const IconSection = () => {
 
 export default IconSection;
 
-
-function MyBox({icon}) {
-  return <Box>{icon}</Box>;
+// eslint-disable-next-line react/prop-types
+function MyBox({ icon, title, subTitle }) {
+  const theme = useTheme();
+  return (
+    <Box
+      sx={{
+        width: 250,
+        flexGrow: 1,
+        display: "flex",
+        alignItems: "center",
+        gap: 3,
+        justifyContent: "center",
+        py: 1.6,
+      }}
+    >
+      {icon}
+      <Box>
+        <Typography variant="body1">{title}</Typography>
+        <Typography
+          sx={{ fontWeight: 300, color: theme.palette.text.secondary }}
+          variant="body1"
+        >
+          {subTitle}
+        </Typography>
+      </Box>
+    </Box>
+  );
 }
-
-
