@@ -13,7 +13,7 @@ function BoxImages() {
             position: "absolute",
             top: "50%",
             transform: "translateY(-50%)",
-            left: 31,
+            left: 15,
           }}
         >
           <Typography
@@ -73,7 +73,7 @@ function BoxImages() {
             position: "absolute",
             top: "50%",
             transform: "translateY(-50%)",
-            left: 31,
+            left: 20,
           }}
         >
           <Typography
