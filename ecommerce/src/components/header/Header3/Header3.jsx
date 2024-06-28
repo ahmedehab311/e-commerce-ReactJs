@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Links, Categories } from "../index";
 import {
   Accordion,
   AccordionSummary,
@@ -16,8 +17,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Close } from "@mui/icons-material";
-import Links from "../header/Links";
-import Categories from "./Categories";
+
 function Header3() {
   const [state, setState] = useState({
     top: false,

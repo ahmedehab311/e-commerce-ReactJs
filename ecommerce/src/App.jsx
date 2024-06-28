@@ -1,10 +1,8 @@
 import "./index.css";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import Header1 from "./components/header/Header1/Header1";
-import Header2 from "./components/header/Header2/Header2";
-import Header3 from "./components/Header3/Header3";
-import Hero from "./components/hero/Hero";
+import { Header1, Header2, Header3 } from "./components/header/index";
+import { Hero, IconSection } from "./components/hero/index";
 function App() {
   const [theme, colorMode] = useMode();
   return (
@@ -16,6 +14,7 @@ function App() {
           <Header2 />
           <Header3 />
           <Hero />
+          <IconSection />
         </ThemeProvider>
       </ColorModeContext.Provider>
     </>

@@ -1,3 +1,5 @@
+import "../header.css"
+import { useState } from "react";
 import { ExpandMore, ShoppingCartOutlined } from "@mui/icons-material";
 import {
   Badge,
@@ -12,7 +14,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled } from "@mui/material/styles";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -29,10 +30,14 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: "266px",
+  width: "277px",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
     width: "330px",
+  },
+  [theme.breakpoints.up("xs")]: {
+    marginLeft: theme.spacing(3),
+    width: "200px",
   },
 }));
 
@@ -132,7 +137,8 @@ const Header2 = () => {
               aria-label="when device is locked"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClickListItem}
-            >
+             className="category"
+           >
               <ListItemText
                 // className="border"
                 sx={{

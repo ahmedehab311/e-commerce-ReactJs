@@ -3,24 +3,24 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import img1 from "../images/banner-15.jpg";
-import img2 from "../images/banner-25.jpg";
+import { img3, img4 } from "../imegsExports";
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 
 const mySlider = [
   {
     text: "MEN",
-    link: img1,
+    link: img3,
   },
   {
     text: "WOMEN",
-    link: img2,
+    link: img4,
   },
 ];
 function Slider() {
   const theme = useTheme();
   return (
     <Swiper
+      loop={true}
       pagination={{
         dynamicBullets: true,
       }}

@@ -29,6 +29,7 @@ function Links({ title }) {
           left: "50%",
           transform: "translateX(-50%)",
           display: "none",
+          zIndex:2
         }}
         className=" show-when-hover"
       >

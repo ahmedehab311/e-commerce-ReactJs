@@ -1,10 +1,9 @@
 import { Box, Link, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import img1 from "../images/banner-16.jpg";
-import img2 from "../images/banner-17.jpg";
+import { img1, img2 } from "../imegsExports";
 function BoxImages() {
   return (
-    <Box sx={{ display: { xs: "none", md: "block", minWidth:"26.6%"  } }}>
+    <Box sx={{ display: { xs: "none", md: "block", minWidth: "26.6%" } }}>
       <Box sx={{ position: "relative" }}>
         <img width={"100%"} src={img2} alt="" />
 
@@ -67,7 +66,7 @@ function BoxImages() {
       </Box>
 
       <Box sx={{ position: "relative" }}>
-        <img width={"100%"}  src={img1} alt="" />
+        <img width={"100%"} src={img1} alt="" />
         <Stack
           sx={{
             position: "absolute",

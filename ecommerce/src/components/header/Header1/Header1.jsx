@@ -1,3 +1,4 @@
+import {Logo,Icons,LightDarkMode} from "../index"
 import { useState } from "react";
 import { Box, Stack, ListItem, Container } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
@@ -5,10 +6,6 @@ import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import LightDarkMode from "./LightDarkMode/LightDarkMode";
-import Logo from "./Logo/Logo";
-import Icons from "./Icons";
-
 function Header1() {
   const options = ["AR", "EN"];
   const [anchorEl, setAnchorEl] = useState(null);
