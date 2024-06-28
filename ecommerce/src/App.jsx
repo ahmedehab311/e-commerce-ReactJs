@@ -1,6 +1,6 @@
 import "./index.css";
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { Header1, Header2, Header3 } from "./components/header/index";
 import { Hero } from "./components/hero/index";
 function App() {
@@ -13,8 +13,9 @@ function App() {
           <Header1 />
           <Header2 />
           <Header3 />
-          <Hero />
-  
+          <Box bgcolor={theme.palette.bg.main}>
+            <Hero />
+          </Box>
         </ThemeProvider>
       </ColorModeContext.Provider>
     </>

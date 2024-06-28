@@ -13,10 +13,17 @@ import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOu
 import AccessAlarmOutlinedIcon from "@mui/icons-material/AccessAlarmOutlined";
 
 const IconSection = () => {
+  const theme = useTheme();
   return (
-    <Container sx={{ bgcolor: "#000" }}>
+    <Container
+      sx={{ mt: 3, bgcolor: theme.palette.mode === "dark" ? "#000" : "fff" }}
+    >
       <Stack
-        divider={<Divider orientation="vertical" flexItem />}
+        divider={
+          useMediaQuery("(min-width:875px)") ? (
+            <Divider orientation="vertical" flexItem />
+          ) : null
+        }
         direction={"row"}
         alignItems={"center"}
         sx={{ flexWrap: "wrap" }}
@@ -59,8 +66,9 @@ function MyBox({ icon, title, subTitle }) {
         display: "flex",
         alignItems: "center",
         gap: 3,
-        justifyContent: "center",
+        // justifyContent: "center",
         py: 1.6,
+        justifyContent: useMediaQuery("(min-width:875px)") ? "center" : "left",
       }}
     >
       {icon}

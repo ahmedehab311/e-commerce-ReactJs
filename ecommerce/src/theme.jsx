@@ -10,7 +10,10 @@ export const getDesignTokens = (mode) => ({
           // palette values for light mode
 
           mycolor: {
-            mainn:"#f6f9fc"
+            mainn: "#f6f9fc",
+          },
+          bg: {
+            main: "#f6f6f6",
           },
           text: {
             primary: "#2B3445",
@@ -26,7 +29,10 @@ export const getDesignTokens = (mode) => ({
       : {
           // palette values for dark mode
           mycolor: {
-            mainn:"#252b32"
+            mainn: "#252b32",
+          },
+          bg: {
+            main: "#1D2021",
           },
           neutral: {
             main: "#64748B",
@@ -47,6 +53,7 @@ export const ColorModeContext = createContext({
   toggleColorMode: () => {},
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useMode = () => {
   const [mode, setMode] = useState(
     localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
