@@ -1,18 +1,16 @@
 import { useState } from "react";
 import { Box, Stack, ListItem, Container } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import LightDarkMode from "./LightDarkMode/LightDarkMode";
 import Logo from "./Logo/Logo";
+import Icons from "./Icons";
 
 function Header1() {
-  const options = ["EN", "AR"];
+  const options = ["AR", "EN"];
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
@@ -90,25 +88,7 @@ function Header1() {
             ))}
           </Menu>
 
-          <TwitterIcon
-            sx={{
-              fontSize: "16px",
-              color: "#fff",
-            }}
-          />
-          <FacebookIcon
-            sx={{
-              fontSize: "16px",
-              mx: 1,
-              color: "#fff",
-            }}
-          />
-          <InstagramIcon
-            sx={{
-              fontSize: "16px",
-              color: "#fff",
-            }}
-          />
+        <Icons/>
         </Stack>
       </Container>
     </Box>
