@@ -45,3 +45,9 @@
     font-size: 1.5rem !important;
   }
 }
+
+@media (max-width: 600px) {
+  .css-zcu8g2-MuiTypography-root {
+    font-size: 1rem !important;
+  }
+}

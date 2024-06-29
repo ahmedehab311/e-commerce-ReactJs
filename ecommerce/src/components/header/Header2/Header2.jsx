@@ -1,4 +1,4 @@
-import "../header.css"
+import "../header.css";
 import { useState } from "react";
 import { ExpandMore, ShoppingCartOutlined } from "@mui/icons-material";
 import {
@@ -137,8 +137,8 @@ const Header2 = () => {
               aria-label="when device is locked"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClickListItem}
-             className="category"
-           >
+              className="category"
+            >
               <ListItemText
                 // className="border"
                 sx={{

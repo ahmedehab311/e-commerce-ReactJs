@@ -1,3 +1,4 @@
+import { ProductDetails } from "..";
 import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -8,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import { Dialog, IconButton, Rating, Stack } from "@mui/material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { Close } from "@mui/icons-material";
+import img from "../t-shirts-products/5/100.jpg";
 function MainProducts() {
   const [open, setOpen] = useState(false);
 
@@ -40,7 +42,7 @@ function MainProducts() {
             >
               <CardMedia
                 sx={{ height: 277 }}
-                image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+                image={img}
                 title="green iguana"
               />
               <CardContent>
@@ -82,30 +84,26 @@ function MainProducts() {
       </Stack>
 
       <Dialog
-          sx={{ ".MuiPaper-root": { minWidth: { xs: "100%", md: 800 } } }}
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
+        sx={{ ".MuiPaper-root": { minWidth: { xs: "100%", md: 800 } } }}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <IconButton
+          sx={{
+            ":hover": { color: "red", rotate: "180deg", transition: "0.3s" },
+            position: "absolute",
+            top: 0,
+            right: 10,
+          }}
+          onClick={handleClose}
         >
-          <IconButton
-            sx={{
-              ":hover": { color: "red", rotate: "180deg", transition: "0.3s" },
-              position: "absolute",
-              top: 0,
-              right: 10,
-            }}
-            onClick={handleClose}
-          >
-            <Close />
-          </IconButton>
-<br />
-<br />
-<br />
-<br />
-<br />
-          {/* <ProductDetails clickedProduct={clickedProduct} /> */}
-        </Dialog>
+          <Close />
+        </IconButton>
+        <ProductDetails />
+        {/* <ProductDetails clickedProduct={clickedProduct} /> */}
+      </Dialog>
     </>
   );
 }

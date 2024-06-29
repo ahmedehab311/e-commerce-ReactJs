@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import "./footer.css";
 function Footer() {
   return (
     <Box
@@ -7,7 +8,6 @@ function Footer() {
         py: 1.3,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
-   
       }}
     >
       <Typography
@@ -28,7 +28,7 @@ function Footer() {
           }}
           href="https://prtofolio.surge.sh/"
           variant="text"
-            target="_blank"
+          target="_blank"
           color="primary"
         >
           Ahmed Ehab
