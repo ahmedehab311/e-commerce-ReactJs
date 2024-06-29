@@ -2,5 +2,7 @@ import Slider from "./Slider/Slider";
 import BoxImages from "./BoxImegs/BoxImages";
 import Hero from "./Hero";
 import IconSection from "./iconSection/IconSection";
-
-export { Slider, BoxImages, IconSection, Hero};
+import Main from "../main/main";
+import Footer from "../footer/Footer";
+import ScrollToUP from "../scrollToUP/scrollToUP";
+export { Slider, BoxImages, IconSection, Hero, Main,Footer,ScrollToUP };

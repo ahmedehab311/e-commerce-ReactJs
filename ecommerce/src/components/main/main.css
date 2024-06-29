@@ -1,0 +1,18 @@
+.mybutton {
+  border-radius: 5px !important;
+  border: 1px solid #888 !important;
+  text-transform: capitalize !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  font-size: 15px !important;
+}
+
+@media (max-width: 866px) {
+  .css-i9gxme {
+    text-align: center !important;
+  }
+  .css-191tym1-MuiStack-root,
+  .css-arb1gn-MuiStack-root {
+    justify-content: center !important;
+  }
+}
