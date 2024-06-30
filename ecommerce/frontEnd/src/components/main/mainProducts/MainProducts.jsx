@@ -25,7 +25,7 @@ function MainProducts() {
     "products?populate=*"
   );
   if (data) {
-    console.log("thedata",data.data);
+    console.log("thedata", data.data);
     // console.log("theimg",data.data.attributes.productImg.data[0].attributes.url);
   }
   if (data) {
@@ -51,7 +51,9 @@ function MainProducts() {
               >
                 <CardMedia
                   sx={{ height: 277 }}
-                  // image={`http://localhost:1337${item.attributes.productImg.data[1].attributes.url}`}
+                  // image={`${import.meta.env.VITE_BASE_URL}${
+                  //   item.attributes.productImg.data[0].attributes.url
+                  // }`}
                   image={img}
                   title="green iguana"
                 />
